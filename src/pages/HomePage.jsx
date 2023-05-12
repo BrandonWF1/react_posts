@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import CaptchaComponent from "../components/CaptchaComponent";
+import React from 'react';
+
 
 const HomePage = () => {
 

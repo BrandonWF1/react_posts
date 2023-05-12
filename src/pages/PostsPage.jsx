@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import PostList from "../components/PostList";
-import PostItem from "../components/PostItem";
 import ModalPopup from "../components/ModalPopup";
 
 const PostsPage = () => {
