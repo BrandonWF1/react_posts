@@ -1,55 +1,45 @@
 import React, {useState} from 'react';
+import GenerateTextCaptcha from "../utils/GenerateTextCaptcha";
+import MyInput from "./UI/MyInput";
 
-const CaptchaComponent = () => {
-    const [captcha, setCaptcha] = useState('')
+
+
+const CaptchaComponent = ({setCorrect,correct}) => {
+    const [captcha, setCaptcha] = useState(GenerateTextCaptcha)
     const [captcha_value, setCaptcha_Value] = useState('')
-    const [captcha_correct, setCaptcha_correct] = useState(false)
-    const generate = () => {
-        let captcha = ''
-        const possibleChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        for (let i = 0; i < 6; i++) {
-            captcha += possibleChars.charAt(Math.floor(Math.random() * possibleChars.length))
+    const checkCaptcha = () => {
+        if(captcha_value === captcha) {
+            setCorrect(true)
         }
-        setCaptcha(captcha)
-    }
-    const checkCaptcha = (event) => {
-        if (captcha_value === captcha) {
-            setCaptcha_correct(true)
-        }
-        else
-        {
-            setCaptcha_correct(false)
+        else {
+            setCorrect(false)
         }
     }
-
-
 
     return (
-        <div>
+        <div className={'max-w-sm border-2 border-pink-100 rounded-2xl p-4'}>
             <div>
                 <div className={'flex items-center pb-5 w-[300px]'}>
-                    <div className={'w-full'}>
-                    <button
-                        className={'border-2 p-1 border-pink-200 rounded bg-pink-200 font-bold text-xl hover:scale-105 duration-300'}
-                        onClick={generate}
-                    >Generate captcha:
-                    </button>
-                    </div>
-                    <div className={'font-bold text-xl'}>
-                        {captcha}
+                    <div className={'text-xl'}>
+                        Enter captcha: <span className={'font-bold '}>{captcha}</span>
                     </div>
                 </div>
 
-                <input
+                <MyInput
                     value={captcha_value}
-                    onChange={(event) => {
-                        setCaptcha_Value(event.target.value)
-                    }
-                    }
+                    onChange={(event) => setCaptcha_Value(event.target.value)}
                     type="text"
-                    placeholder={'Enter captcha to create post'}
-                    className={'font-bold w-full border-2 border-black rounded-xl p-1'}
+                    placeholder={'Enter'}
+
                 />
+                {correct === false && <div className={'text-red-400 text-md font-bold'}>Captcha incorrect</div>}
+                {correct && <div className={'text-green-400 text-md font-bold'}>Captcha correct</div>}
+                <button
+                    className={'bg-green-300 mt-5 p-2 rounded-2xl font-bold text-xl w-[100px] '}
+                    onClick={checkCaptcha}
+                >
+                    Submit
+                </button>
             </div>
         </div>
     );

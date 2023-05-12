@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
+import CaptchaComponent from "../components/CaptchaComponent";
 
 const HomePage = () => {
+
     return (
         <div>
-            Home Page
+
         </div>
     );
 };
