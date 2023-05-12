@@ -1,11 +1,11 @@
 import React from 'react';
 
-const VideosPage = () => {
+const HomePage = () => {
     return (
         <div>
-            Videos Page
+            Home Page
         </div>
     );
 };
 
-export default VideosPage;
+export default HomePage;

@@ -11,25 +11,25 @@ const HeaderComponent = () => {
                     <NavLink
                         to={'/home'}
                         className={({isActive, isPending}) =>
-                            isPending ? "pending" : isActive ? "underline text-yellow-300" : ""
+                            isPending ? "pending" : isActive ? "underline text-purple-300" : ""
                         }
                     >Home</NavLink>
                     <NavLink
                         to={'/posts'}
                         className={({isActive, isPending}) =>
-                            isPending ? "pending" : isActive ? "underline text-yellow-300" : ""
+                            isPending ? "pending" : isActive ? "underline text-purple-300" : ""
                         }
                     >Posts</NavLink>
                     <NavLink
                         to={'/videos'}
                         className={({isActive, isPending}) =>
-                            isPending ? "pending" : isActive ? "underline text-yellow-300" : ""
+                            isPending ? "pending" : isActive ? "underline text-purple-300" : ""
                         }
                     >Videos</NavLink>
                     <NavLink
                         to={'/about'}
                         className={({isActive, isPending}) =>
-                            isPending ? "pending" : isActive ? "underline text-yellow-300" : ""
+                            isPending ? "pending" : isActive ? "underline text-purple-300" : ""
                         }
                     >About</NavLink>
                 </div>
