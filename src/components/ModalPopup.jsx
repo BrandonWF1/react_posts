@@ -63,7 +63,7 @@ const ModalPopup = ({setPopupVisible},{captcha_correct}) => {
                             {captcha_correct && <div className={'text-red-500 font-bold mt-2'}>Captcha right</div>}
                             <button
                                 className={'bg-green-300 mt-5 p-2 rounded-2xl font-bold text-xl w-[100px] '}
-                                onClick={checkCaptcha}
+                                // onClick={checkCaptcha}
                             >
                                 Submit
                             </button>
