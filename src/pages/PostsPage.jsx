@@ -1,24 +1,25 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import PostList from "../components/PostList";
 import ModalPopup from "../components/ModalPopup";
+import axios from "axios";
 
 const PostsPage = () => {
     const posts_list = [
-        {
-            title: 'Title 1',
-            body: 'OPIASDFOswkehfgIOSUG',
-            date: '05.05.2023',
-        },
-        {
-            title: 'Title 2',
-            body: 'ASDasdasdasasasd',
-            date: '05.05.2023',
-        },
-        {
-            title: 'Title 3',
-            body: 'asddaSAsdsaasd',
-            date: '05.05.2023',
-        }
+        // {
+        //     title: 'Title 1',
+        //     body: 'OPIASDFOswkehfgIOSUG',
+        //     date: '05.05.2023',
+        // },
+        // {
+        //     title: 'Title 2',
+        //     body: 'ASDasdasdasasasd',
+        //     date: '05.05.2023',
+        // },
+        // {
+        //     title: 'Title 3',
+        //     body: 'asddaSAsdsaasd',
+        //     date: '05.05.2023',
+        // }
     ]
     const [posts, setPosts] = useState(posts_list)
     const [popupVisible, setPopupVisible] = useState(false)
@@ -30,6 +31,14 @@ const PostsPage = () => {
     const openPopup = () => {
         setPopupVisible(true)
     }
+
+    useEffect(()=> {
+        axios.get('https://jsonplaceholder.typicode.com/posts?_limit=10').then(res => {
+            setPosts(res.data)
+
+        })
+    },[])
+
     return (
         <div>
 
@@ -37,6 +46,7 @@ const PostsPage = () => {
                 <div className={'w-[70%]'}>
                     <PostList
                     posts={posts}
+                    setPosts={setPosts}
                     />
                 </div>
                 <div className={'w-1/4 flex flex-col items-center'}>

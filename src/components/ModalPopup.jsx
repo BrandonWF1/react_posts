@@ -10,6 +10,7 @@ const ModalPopup = ({setPopupVisible, createNewPost}) => {
 
     const createPost = () => {
         const newPost = {
+            id: Date.now(),
             title: title_value,
             body: body_value,
             date: new Date().toLocaleDateString()
@@ -43,7 +44,7 @@ const ModalPopup = ({setPopupVisible, createNewPost}) => {
                             placeholder={'Description'}
                         />
                         {correct && <button
-                            className={'bg-yellow-300 px-4 py-2 rounded-2xl hover:scale-105 duration-300 block'}
+                            className={'w-5/6 mt-5 bg-purple-300 px-4 py-4 rounded-2xl hover:scale-105 hover:bg-purple-400 duration-300 block font-bold text-xl'}
                             onClick={createPost}
                             >Create
                             post
